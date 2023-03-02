@@ -44,11 +44,15 @@ def multi_thread(connectionSocket):
 
         # Send the HTTP response header line to the connection socket
         # send Header line to the connection socket
-        
+
 
 
         # Send the content of the requested file to the connection socket
+    except IOError:
+        # Send HTTP response message for file not found
+        # Close the client connection socket
 
+        connectionSocket.close()
 
 
     # Close the socket in case of some issues 
